@@ -22,6 +22,7 @@ public class Ej05 {
 	//Convertimos string en int
 	int num = Integer.parseInt(valor);
 	
+	//Genero variable resto para que cualquier numero dividido entre 2, el resto sea igual a 0.
 	int resto = (num % 2);
 	
 	if (resto==0) {

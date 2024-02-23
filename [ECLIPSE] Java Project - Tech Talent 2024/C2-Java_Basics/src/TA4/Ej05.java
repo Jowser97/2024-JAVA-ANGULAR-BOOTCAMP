@@ -11,6 +11,8 @@ public class Ej05 {
 		int c = 3;
 		int d = 4;
 		
+		System.out.println("Inicialmente los datos: " +a+ ", " +b+ ", " +c+ " y " +d); 
+		
 		/*A continuacion realiza las instrucciones necesarias para que:
 		B tome el valor de C
 		C tome el valor de A
@@ -41,8 +43,8 @@ public class Ej05 {
 		
 		/*Aqui he intercambiado los valores, ahora voy a mostrarlos en consola y 
 		el orden deberia ser 4 3 1 3*/
-		System.out.println("Los nuevos datos son: \n" + a + "\n" +
-		b + "\n" + c + "\n" + d);
+		System.out.println("Los nuevos datos son: " + a + ", " +
+		b + ", " + c + " y " + d);
 
 		
 		/*Hay que tener en cuenta que no se intercambian las variables, si no que,

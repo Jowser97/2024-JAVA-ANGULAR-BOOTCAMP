@@ -14,15 +14,15 @@ public class Ej04 {
 		
 		//Al incrementar N en 77 la varibla pasa a tener un valor de 82
 		n += 77;
-		System.out.println(n);
+		System.out.println("La variable n vale: " +n+ ".");
 		
 		//Al decrementar N en 3 la variable pasa a tener un valor de 79
 		n -= 3;
-		System.out.println(n);
+		System.out.println("La variable n vale: " +n+ ".");
 		
 		//Al duplicar el valor de N la variable pasa a tener un valor de 158
 		n *= 2;
-		System.out.println(n);
+		System.out.println("La variable n vale: " +n+ ".");
 		
 		//En consola se imprimira
 		//82
