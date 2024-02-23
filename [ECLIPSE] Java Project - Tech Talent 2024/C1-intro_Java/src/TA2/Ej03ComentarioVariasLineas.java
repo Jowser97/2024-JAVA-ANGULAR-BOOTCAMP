@@ -17,7 +17,9 @@ public class Ej03ComentarioVariasLineas {
 				//hemos creado un mensaje en consola para plasmar el rango que hemos
 				//escogido a trabajar en el bucle for
 		
-		for (int contador = inicioCuenta; contador <= finCuenta; contador++) { //eliminamos el comentario ya que no aportaba nada
+		for (int contador = inicioCuenta; contador <= finCuenta; contador++) { 
+		//eliminamos el comentario ya que no aportaba nada
+			
 			System.out.print(contador+" ");	//delimitamos el for con {llaves}
 		}
 		/* Hemos cambiado el nombre de la variablo i a contador ya que esa es su funcion
