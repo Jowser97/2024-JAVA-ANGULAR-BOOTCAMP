@@ -12,13 +12,12 @@ public class Ej04 {
 
 	public static void main(String[] args) {
 		
-		int num;
 		Scanner sc = new Scanner(System.in); 
 		
 		System.out.println("Bienvenido. \nIntroduzca el numero entero deseado"
 				+ " a factorizar:");
 			
-		num = Integer.parseInt(sc.nextLine());
+		int num = Integer.parseInt(sc.nextLine());
 		sc.close();
 					
 		System.out.println("El factorial es: " +factorizar(num));
