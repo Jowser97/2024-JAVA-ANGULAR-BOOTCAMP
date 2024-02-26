@@ -32,7 +32,7 @@ public class Ej10 {
         int array[] = new int[lengthArray];
         System.out.println("Introduce el valor minimo del rango:");
         	int rangoMIN = Integer.parseInt(sc.nextLine());
-        System.out.println("Introduce el valor minimo del rango:");
+        System.out.println("Introduce el valor maximo del rango:");
         	int rangoMAX = Integer.parseInt(sc.nextLine());
        
         for (int i = 0; i <lengthArray; i++) {
