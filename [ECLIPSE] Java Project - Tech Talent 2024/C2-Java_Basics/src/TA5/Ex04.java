@@ -13,7 +13,10 @@ public class Ex04 {
 		
 		System.out.println("Bienvenido.");
 		System.out.println("Introduzca un numero para ver si es o no primo.");
-		String numIntro = sc.nextLine ();
+		int numIntro = sc.nextInt();
+		
+		
+		
 		sc.close();	
 		
 		
