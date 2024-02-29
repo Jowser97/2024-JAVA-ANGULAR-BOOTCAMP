@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Scanner;
 
-public class EjClaseHashtable {
+public class UD7Hashtable {
 		
 	public static void main(String[] args) {
 		// Crear un HashMap con clave de tipo String y valor de tipo Integer
@@ -72,25 +72,9 @@ public class EjClaseHashtable {
 		
 		    }
 	
-		public static void generarAlumno () {
-		
-			for (int i = 0; i < 2; i++) {
-				Scanner sc = new Scanner(System.in);
-			System.out.println("Introduzca el nombre del alumno.");
-				String nombreIntro = sc.nextLine();
-			System.out.println("Introduzca la edad del alumno.");
-				int edadIntro = sc.nextInt();
-				
-			map.put(nombreIntro, edadIntro);
-			}
-				
-			
-			
-			
 		}
 		
-		
-		}
+
 
 	
 

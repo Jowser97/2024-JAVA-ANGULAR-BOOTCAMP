@@ -33,7 +33,7 @@ public class UD7ArrayListApp {
 		System.out.println(listaNumeros.size());
 		
 		System.out.println("_______\nEliminar remove():");
-		listaNumeros.remove(2);
+		listaNumeros.remove(2);//(indice) se hace resize
 		System.out.println(listaNumeros.toString());
 		
 		System.out.println("_______\nTamaño size():");

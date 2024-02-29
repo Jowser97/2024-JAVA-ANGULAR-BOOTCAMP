@@ -16,7 +16,7 @@ public class Ej09 {
 			
 		int [] arrayGenerado = crearYrellenarArrayRandom(lengthIntro);
 		
-		System.out.print("El array generado es:");
+		System.out.println("El array generado es:");
 		imprimirArray(arrayGenerado);
 	
 	}
