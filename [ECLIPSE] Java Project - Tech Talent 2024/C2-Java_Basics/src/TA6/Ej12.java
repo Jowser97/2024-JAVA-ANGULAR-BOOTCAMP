@@ -70,10 +70,10 @@ public class Ej12 {
         }
 	}
 	
-	public static int[] crearYrellenarArrayRANDOM(int pepito) {
-        int array[]=new int [pepito]; // {0,0,0,0,0} cuando tamaño es 5
+	public static int[] crearYrellenarArrayRANDOM(int largoArray) {
+        int array[]=new int [largoArray]; // {0,0,0,0,0} cuando tamaño es 5
        
-        for (int i = 0; i <pepito; i++) {
+        for (int i = 0; i <largoArray; i++) {
         	int randomNum = (int) (Math.random()*(300 + 1));
         	array[i]=randomNum;
         }

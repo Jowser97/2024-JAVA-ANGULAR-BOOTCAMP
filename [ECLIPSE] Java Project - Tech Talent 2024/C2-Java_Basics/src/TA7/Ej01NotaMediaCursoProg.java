@@ -23,14 +23,51 @@ public class Ej01NotaMediaCursoProg {
 		
 		System.out.println("--NOTAS DE ALUMNOS--");
 		
-		//Esto ira dentro de un bucle 
-		System.out.println("Cuantos alumnos quieres crear?");
-		int alumnosTotales = sc.nextInt();
 		
 		HashMap<String, Integer> promedioAlumnos = new HashMap<>();
 		
+		System.out.println("Cuantos alumnos quieres crear?");
+		int alumnosTotales = sc.nextInt();
+		
+		int contador = 0;
+		do {
+			System.out.println("Persona numero " +(contador+1)+":");
+			formulario(promedioAlumnos);
+			contador++;
+		}while(contador<(alumnosTotales));
+			System.out.println("La media de cada alumnos es:");
+			imprimirHashMapKeyValue(promedioAlumnos);
+		}
+		
+	public static void formulario (HashMap<String, Integer> listadoHashMap) {
+//			String nombre;
+//			int nota1;
+//			int nota2;
+//			int media;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Nombre de alumno");
+		String nombre = sc.nextLine();
+		
+		System.out.println("Introduce la nota del primer parcial.");
+		int nota1 = Integer.parseInt(sc.nextLine());
+		
+		System.out.println("Introduce la nota del segundo parcial.");
+		int nota2 = Integer.parseInt(sc.nextLine());
+		
+		int media = ((nota1+nota2)/2);
+		listadoHashMap.put(nombre, media);
+	
+		}
+	
+	public static void imprimirHashMapKeyValue(HashMap <String, Integer> listadoHashmap) {
+		for (String key : listadoHashmap.keySet()) {
+	        int valueDeKey = listadoHashmap.get(key);
+	        	System.out.println(key+ " / " +valueDeKey);
+		
+		}
 		
 	}
 		
-}	
+}
 		
