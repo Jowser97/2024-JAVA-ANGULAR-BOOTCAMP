@@ -24,7 +24,7 @@ public class Ej01NotaMediaCursoProg {
 		System.out.println("--NOTAS DE ALUMNOS--");
 		
 		
-		HashMap<String, Integer> promedioAlumnos = new HashMap<>();
+		HashMap<String, Integer> alumnosNotaMedia = new HashMap<>();
 		
 		System.out.println("Cuantos alumnos quieres crear?");
 		int alumnosTotales = sc.nextInt();
@@ -32,18 +32,14 @@ public class Ej01NotaMediaCursoProg {
 		int contador = 0;
 		do {
 			System.out.println("Persona numero " +(contador+1)+":");
-			formulario(promedioAlumnos);
+			formulario(alumnosNotaMedia);
 			contador++;
 		}while(contador<(alumnosTotales));
 			System.out.println("La media de cada alumnos es:");
-			imprimirHashMapKeyValue(promedioAlumnos);
+			imprimirHashMapKeyValue(alumnosNotaMedia);
 		}
 		
 	public static void formulario (HashMap<String, Integer> listadoHashMap) {
-//			String nombre;
-//			int nota1;
-//			int nota2;
-//			int media;
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Nombre de alumno");

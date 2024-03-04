@@ -18,6 +18,8 @@ public class EjGrupalEquipos {
         } while (i < alumnosTotales);
         System.out.println("La edad de los alumnos de clase es:");
         impHashMapKeyValue(edadesAlumnos);
+        
+        System.out.println("--FIN DE PROGRAMA--");
     }
 
     public static void formulario(HashMap<String, Integer> listadoHashmap) {
