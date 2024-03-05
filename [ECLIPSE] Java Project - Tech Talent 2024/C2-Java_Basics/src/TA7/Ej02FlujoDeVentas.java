@@ -39,8 +39,6 @@ public class Ej02FlujoDeVentas {
 	public static void rellenarCarritoCompra (HashMap<String, Double> listadoHashMap) {
 		
 		Scanner sc = new Scanner(System.in);
-
-		System.out.println("Producto:");
 		String producto = sc.nextLine();
 		
 		System.out.println("Precio:");
