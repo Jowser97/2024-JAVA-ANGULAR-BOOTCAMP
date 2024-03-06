@@ -55,5 +55,10 @@ public class Ej02FlujoDeVentas {
 			System.out.println(key+ " / "+valueDeKey);
 		}
 	}
+	public static double calcularPrecioTotal (HashMap<String, Integer> HashMap) {
+		for (HashMap key : HashMap.entrySet()) {
+			
+		}
+	}
 
 }
