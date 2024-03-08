@@ -1,5 +1,6 @@
 package TA7;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ public class Ej02FlujoDeVentas {
 		 */
 
 		HashMap<String, Double> carritoCompra = new HashMap<>();
-
+		
 		rellenarCarritoCompra(carritoCompra);
 
 	}
@@ -26,6 +27,7 @@ public class Ej02FlujoDeVentas {
 		System.out.println("Introduce el numero total de productos a comprar.");
 		int productosTotales = Integer.parseInt(sc.nextLine());
 		double[] precioIVA = new double[productosTotales];
+		double total = 0;
 		int contador = 0;
 		do {
 			System.out.println("Producto " + (contador + 1));
@@ -39,21 +41,28 @@ public class Ej02FlujoDeVentas {
 		} while (contador < productosTotales);
 
 		mostrarHashMap(listadoHashMap, precioIVA);
+		
+
+		for (double elemento : precioIVA) {
+		    total += elemento;
+		} 
+
+		System.out.println("El total a pagar es: " + total); 
+//		double cambio = pagar(total);
+		System.out.println("El dinero a devolver es: " + pagar(total) + "€");
 
 	}
 
 	public static void mostrarHashMap(HashMap<String, Double> listadoHashMap, double[] precioIVA) {
-		double total = 0;
+		DecimalFormat formato = new DecimalFormat("#.##");
 		int contador = 0;
 		for (String key : listadoHashMap.keySet()) {
 			Double valueDeKey = listadoHashMap.get(key);
-			double precioConIVA = valueDeKey * (1 + precioIVA[contador]);
-			total += precioConIVA;
-			System.out.println(key + " / " + valueDeKey + " precio más IVA: " + precioConIVA);
+			double precioConIVA = precioIVA[contador];
+			String ivaFormateado = formato.format(precioConIVA);			
+			System.out.println(key + " / " + valueDeKey + " precio más IVA: " + ivaFormateado);
 			contador++;
 		}
-
-		System.out.println("El total a pagar es: " + total);
 	}
 
 	public static Double aplicarIVA(double precio) {
@@ -64,26 +73,26 @@ public class Ej02FlujoDeVentas {
 		double precioIVA;
 
 		if (esencial.equals("s")) {
-			precioIVA = 0.04;
+			precioIVA = precio * 1.04;
 
 		} else {
-			precioIVA = 0.21;
+			precioIVA = precio * 1.21;
 		}
 
 		return precioIVA;
 
 	}
 
-	public static Double pagar(double totalapagar) {
-		
-		double total = 0;
+	public static String pagar(double totalapagar) {
+		DecimalFormat formato = new DecimalFormat("#.##");
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Introduce el dinero:");
 		double dinero = Double.parseDouble(sc.nextLine());
+		System.out.println("Has pagado con: " + dinero + "€");
 		double vuelta = dinero - totalapagar;
-		
-		return vuelta;
-		
+		String vueltaFormateado = formato.format(vuelta);
+		return vueltaFormateado;
+
 	}
 
 }
