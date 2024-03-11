@@ -14,9 +14,10 @@ public class Ej02FlujoDeVentas {
 		 * aplicado (21% o 4%) • precio total bruto y precio mas IVA. • Numero de
 		 * artículos comprados. • Cantidad pagada. • Cambio a devolver al cliente.
 		 */
+		// Hecho con ayuda de Alejandro
 
 		HashMap<String, Double> carritoCompra = new HashMap<>();
-		
+
 		rellenarCarritoCompra(carritoCompra);
 
 	}
@@ -41,14 +42,12 @@ public class Ej02FlujoDeVentas {
 		} while (contador < productosTotales);
 
 		mostrarHashMap(listadoHashMap, precioIVA);
-		
 
 		for (double elemento : precioIVA) {
-		    total += elemento;
-		} 
+			total += elemento;
+		}
 
-		System.out.println("El total a pagar es: " + total); 
-//		double cambio = pagar(total);
+		System.out.println("El total a pagar es: " + total);
 		System.out.println("El dinero a devolver es: " + pagar(total) + "€");
 
 	}
@@ -59,7 +58,7 @@ public class Ej02FlujoDeVentas {
 		for (String key : listadoHashMap.keySet()) {
 			Double valueDeKey = listadoHashMap.get(key);
 			double precioConIVA = precioIVA[contador];
-			String ivaFormateado = formato.format(precioConIVA);			
+			String ivaFormateado = formato.format(precioConIVA);
 			System.out.println(key + " / " + valueDeKey + " precio más IVA: " + ivaFormateado);
 			contador++;
 		}

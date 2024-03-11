@@ -7,7 +7,7 @@ public class Ej01_1NotaMediaMetodos {
 
 	public static void main(String[] args) {
 
-		HashMap<String, Integer> notasPorAlumno = new HashMap<>();
+		HashMap<String, Double> notasPorAlumno = new HashMap<>();
 
 		Scanner sc = new Scanner(System.in);
 
@@ -15,18 +15,19 @@ public class Ej01_1NotaMediaMetodos {
 		int alumnosIntro = Integer.parseInt(sc.nextLine());
 
 		for (int j = 0; j < alumnosIntro; j++) {
-			System.out.println("Como se llama el alumno");
+			System.out.println("Como se llama el alumno " + (j + 1) + "?");
 			String nombre = pedirNombre();
 
 			System.out.println("Cuantas notas quiere introducir?");
 			int notasIntro = Integer.parseInt(sc.nextLine());
-			int[] notas = new int[notasIntro];
+			double[] notas = new double[notasIntro];
 			for (int i = 0; i < notasIntro; i++) {
 				System.out.println("Por favor, introduzca la nota " + (i + 1) + ":");
 				notas[i] = pedirNotas();
 			}
-			int media = notaMedia(notas);
+			double media = notaMedia(notas);
 			notasPorAlumno.put(nombre, media);
+
 		}
 
 		imprimirHashMap(notasPorAlumno);
@@ -39,29 +40,29 @@ public class Ej01_1NotaMediaMetodos {
 		return nombre;
 	}
 
-	public static int pedirNotas() {
+	public static double pedirNotas() {
 		Scanner sc = new Scanner(System.in);
-		int nota = Integer.parseInt(sc.nextLine());
+		double nota = Double.parseDouble(sc.nextLine());
 
 		return nota;
 	}
 
-	public static int notaMedia(int[] notas) {
-		int suma = 0;
+	public static double notaMedia(double[] notas) {
+		double suma = 0;
 		for (int i = 0; i < notas.length; i++) {
 			suma += notas[i];
 		}
 
-		int media = suma / notas.length;
+		double media = suma / notas.length;
 
 		return media;
 	}
 
-	public static void imprimirHashMap(HashMap<String, Integer> HashMap) {
+	public static void imprimirHashMap(HashMap<String, Double> HashMap) {
+		System.out.println("Las notas medias son:");
 		for (String key : HashMap.keySet()) {
-			int valueKey = HashMap.get(key);
-			System.out.println("Las notas medias son:\n" + key + " / " + valueKey);
-
+			double valueKey = HashMap.get(key);
+			System.out.println(key + " / " + valueKey);
 		}
 
 	}
