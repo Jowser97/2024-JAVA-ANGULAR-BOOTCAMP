@@ -17,28 +17,11 @@ public class Ej02v2FlujoDeVentas {
 		HashMap<String, Double> carrito = new HashMap<>();
 		ArrayList<Double> precioIVA = new ArrayList<>();
 
-		String respuestaCarrito = "";
-		do {
-			System.out.println("Desea añadir elementos al carro?(si/no)");
-			respuestaCarrito = sc.nextLine();
-
-			if (respuestaCarrito.equalsIgnoreCase("si")) {
-				String producto = obtenerProducto();
-				double precioBruto = obtenerPrecio();
-				double precioConIVA = obtenerPrecioConIva(precioBruto);
-				carrito.put(producto, precioBruto);
-				precioIVA.add(precioConIVA);
-			}
-		} while (respuestaCarrito.equalsIgnoreCase("si"));
+		preguntaAñadirCarrito(carrito, precioIVA);
 
 		imprimirHashMap(carrito, precioIVA);
-
-		double totalPagar = totalCompra(precioIVA);
-		DecimalFormat formato = new DecimalFormat("#.##");
-		String totalPagarForm = formato.format(totalPagar);
-		System.out.println("El total a pagar es:" + totalPagarForm + "€");
-
-		pagar(totalPagar);
+		
+		tiquetCompra(precioIVA);
 
 		System.out.println("Le esperamos pronto!");
 
@@ -98,11 +81,39 @@ public class Ej02v2FlujoDeVentas {
 	public static void pagar(double totalapagar) {
 		DecimalFormat formato = new DecimalFormat("#.##");
 		Scanner sc = new Scanner(System.in);
+
 		System.out.println("Con cuanto desea pagar?");
 		double dinero = Double.parseDouble(sc.nextLine());
 		System.out.println("Ha pagado con: " + dinero + "€");
 		double vuelta = dinero - totalapagar;
 		String vueltaFormateado = formato.format(vuelta);
 		System.out.println("Su cambio es de: " + vueltaFormateado + "€");
+
+	}
+
+	public static void preguntaAñadirCarrito(HashMap<String, Double> HashMap, ArrayList<Double> precioIVA) {
+		String respuestaCarrito = "";
+		do {
+			System.out.println("Desea añadir elementos al carro?(y/n)");
+			Scanner sc = new Scanner(System.in);
+			respuestaCarrito = sc.nextLine();
+
+			if (respuestaCarrito.equalsIgnoreCase("y")) {
+				String producto = obtenerProducto();
+				double precioBruto = obtenerPrecio();
+				double precioConIVA = obtenerPrecioConIva(precioBruto);
+				HashMap.put(producto, precioBruto);
+				precioIVA.add(precioConIVA);
+			}
+		} while (respuestaCarrito.equalsIgnoreCase("y"));
+	}
+
+	public static void tiquetCompra(ArrayList<Double> precioIVA) {
+		double totalPagar = totalCompra(precioIVA);
+		DecimalFormat formato = new DecimalFormat("#.##");
+		String totalPagarForm = formato.format(totalPagar);
+		System.out.println("El total a pagar es: " + totalPagarForm + "€");
+
+		pagar(totalPagar);
 	}
 }

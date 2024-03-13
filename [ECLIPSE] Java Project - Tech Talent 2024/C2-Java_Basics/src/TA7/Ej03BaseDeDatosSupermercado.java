@@ -36,14 +36,8 @@ public class Ej03BaseDeDatosSupermercado {
 		System.out.println("Productos:");
 		mostrarHashMapPreciosPanel(productosPrecios, productosStock);
 
-		Scanner sc = new Scanner(System.in);
-		String respuesta;
-		do {
-			System.out.println("Desea añadir un articulo? (y/n)");
-			respuesta = sc.nextLine();
-			añadirArticulo(productosPrecios, productosStock, respuesta);
-		} while (respuesta.equalsIgnoreCase("y"));
-
+		preguntaAñadirInventario(productosPrecios, productosStock);
+			
 		mostrarHashMapPreciosPanel(productosPrecios, productosStock);
 
 	}
@@ -71,7 +65,7 @@ public class Ej03BaseDeDatosSupermercado {
 
 	}
 
-	public static void añadirArticulo(HashMap<String, Double> hashmapPrecio, HashMap<String, Integer> hashmapUnidades,
+	public static void añadirArticuloInventario(HashMap<String, Double> hashmapPrecio, HashMap<String, Integer> hashmapUnidades,
 			String respuesta) {
 
 		Scanner sc = new Scanner(System.in);
@@ -89,5 +83,16 @@ public class Ej03BaseDeDatosSupermercado {
 			hashmapPrecio.put(articulo, precio);
 			hashmapUnidades.put(articulo, cantidad);
 		}
+	}
+
+	public static void preguntaAñadirInventario(HashMap<String, Double> hashmapPrecio, HashMap<String, Integer> hashmapUnidades) {
+
+		Scanner sc = new Scanner(System.in);
+		String respuesta;
+		do {
+			System.out.println("Desea añadir un articulo? (y/n)");
+			respuesta = sc.nextLine();
+			añadirArticuloInventario(hashmapPrecio, hashmapUnidades, respuesta);
+		} while (respuesta.equalsIgnoreCase("y"));
 	}
 }
