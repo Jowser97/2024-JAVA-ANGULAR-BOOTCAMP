@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
-public class Ej04Supermercado23Juntos {
+public class Ej04_v2_Supermercado {
 
 	public static void main(String[] args) {
 
@@ -50,15 +50,12 @@ public class Ej04Supermercado23Juntos {
 					añadirElementoInventario(productosPrecios, productosStock);
 					break;
 				case "2":
-					realizarCompra(carrito, precioIVA);
+					realizarCompra(productosPrecios, productosStock, carrito, precioIVA);
 					break;
 				case "3":
 					mostrarInventario(productosPrecios, productosStock);
 					break;
 				case "4":
-					añadirElementoCarritoDesdeStock(productosPrecios, productosStock, carrito);
-					break;
-				case "5":
 					salir = true;
 					volver = true;
 					break;
@@ -77,8 +74,7 @@ public class Ej04Supermercado23Juntos {
 		System.out.println("1. Añadir elemento al inventario");
 		System.out.println("2. Realizar compra");
 		System.out.println("3. Mostrar inventario");
-		System.out.println("4. Añadir elemento al carrito");
-		System.out.println("5. Salir");
+		System.out.println("4. Salir");
 		System.out.print("Por favor, seleccione una opción: ");
 	}
 
@@ -92,24 +88,11 @@ public class Ej04Supermercado23Juntos {
 		mostrarHashMapPreciosPanel(productosPrecios, productosStock);
 	}
 
-	public static void realizarCompra(HashMap<String, Double> carrito, ArrayList<Double> precioIVA) {
-		preguntaAñadirCarrito(carrito, precioIVA);
+	public static void realizarCompra(HashMap<String, Double> productosPrecios, HashMap<String, Integer> productosStock,
+			HashMap<String, Double> carrito, ArrayList<Double> precioIVA) {
+		añadirElementoCarritoDesdeStock(productosPrecios, productosStock, carrito, precioIVA);
 		imprimirHashMap(carrito, precioIVA);
 		tiquetCompra(precioIVA);
-	}
-
-	public static String obtenerProducto() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Introduce producto.");
-		String producto = sc.nextLine();
-		return producto;
-	}
-
-	public static double obtenerPrecio() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Introduce el precio.");
-		double precio = Double.parseDouble(sc.nextLine());
-		return precio;
 	}
 
 	public static double obtenerPrecioConIva(double precio) {
@@ -156,22 +139,6 @@ public class Ej04Supermercado23Juntos {
 		System.out.println("Su cambio es de: " + vueltaFormateado + "€");
 	}
 
-	public static void preguntaAñadirCarrito(HashMap<String, Double> HashMap, ArrayList<Double> precioIVA) {
-		String respuestaCarrito = "";
-		do {
-			System.out.println("Desea añadir elementos al carro?(y/n)");
-			Scanner sc = new Scanner(System.in);
-			respuestaCarrito = sc.nextLine();
-			if (respuestaCarrito.equalsIgnoreCase("y")) {
-				String producto = obtenerProducto();
-				double precioBruto = obtenerPrecio();
-				double precioConIVA = obtenerPrecioConIva(precioBruto);
-				HashMap.put(producto, precioBruto);
-				precioIVA.add(precioConIVA);
-			}
-		} while (respuestaCarrito.equalsIgnoreCase("y"));
-	}
-
 	public static void tiquetCompra(ArrayList<Double> precioIVA) {
 		double totalPagar = totalCompra(precioIVA);
 		DecimalFormat formato = new DecimalFormat("#.##");
@@ -207,32 +174,41 @@ public class Ej04Supermercado23Juntos {
 	}
 
 	public static void añadirElementoCarritoDesdeStock(HashMap<String, Double> productosPrecios,
-			HashMap<String, Integer> productosStock, HashMap<String, Double> carrito) {
+			HashMap<String, Integer> productosStock, HashMap<String, Double> carrito, ArrayList<Double> precioIVA) {
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Desea añadir un producto al carrito? (y/n)");
+		String respuesta = sc.nextLine();
 		System.out.println("Inventario:");
 		mostrarInventario(productosPrecios, productosStock);
-		System.out.print("Ingrese el nombre del producto: ");
-		String producto = sc.nextLine();
-		if (productosStock.containsKey(producto) && productosStock.get(producto) > 0) {
-			int cantidadDisponible = productosStock.get(producto);
-			System.out.print(
-					"Ingrese la cantidad que desea agregar al carrito (disponible: " + cantidadDisponible + "): ");
-			int cantidad = sc.nextInt();
-			if (cantidad <= cantidadDisponible) {
-				double precio = productosPrecios.get(producto);
-				double total = precio * cantidad;
-				if (carrito.containsKey(producto)) {
-					total += carrito.get(producto);
+		do {
+
+			
+			System.out.print("Ingrese el nombre del producto: ");
+			String producto = sc.nextLine();
+			if (productosStock.containsKey(producto) && productosStock.get(producto) > 0) {
+				int cantidadDisponible = productosStock.get(producto);
+				System.out.print(
+						"Ingrese la cantidad que desea agregar al carrito (disponible: " + cantidadDisponible + "): ");
+				int cantidad = sc.nextInt();
+				if (cantidad <= cantidadDisponible) {
+					double precio = productosPrecios.get(producto);
+					double precioConIVA = obtenerPrecioConIva(precio);
+					double total = precio * cantidad;
+					if (carrito.containsKey(producto)) {
+						total += carrito.get(producto);
+					}
+					carrito.put(producto, total);
+					productosStock.put(producto, cantidadDisponible - cantidad);
+					precioIVA.add(precioConIVA);
+					System.out.println("Producto agregado al carrito.");
+				} else {
+					System.out.println("No hay suficiente cantidad disponible en el inventario.");
 				}
-				carrito.put(producto, total);
-				productosStock.put(producto, cantidadDisponible - cantidad);
-				System.out.println("Producto agregado al carrito.");
 			} else {
-				System.out.println("No hay suficiente cantidad disponible en el inventario.");
+				System.out.println("El producto no está disponible en el inventario.");
+				sc.nextLine();
 			}
-		} else {
-			System.out.println("El producto no está disponible en el inventario.");
-		}
+		} while (respuesta.equals("y"));
 	}
 
 	public static void preguntaAñadirInventario(HashMap<String, Double> hashmapPrecio,
