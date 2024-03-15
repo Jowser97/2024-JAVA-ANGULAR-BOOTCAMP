@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
-public class Ej04Supermercado23Juntos {
+public class Ej04_v1_Supermercado23Juntos {
 
 	public static void main(String[] args) {
 

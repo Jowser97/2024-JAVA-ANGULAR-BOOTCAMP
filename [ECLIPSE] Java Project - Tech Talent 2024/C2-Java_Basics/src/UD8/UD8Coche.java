@@ -22,34 +22,8 @@ public class UD8Coche {
         this.color = color;
     }
     
-    public UD8Coche(String marca, String modelo, int año, String color) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.año = año;
-        this.color = color;
-    }
+
     
-    public UD8Coche(String marca, String modelo, int año, String color) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.año = año;
-        this.color = color;
-    }
-    
-    public UD8Coche(String marca, String modelo, int año, String color) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.año = año;
-        this.color = color;
-    }
-    
-    
-    public UD8Coche(String marca, String modelo, int año, String color) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.año = año;
-        this.color = color;
-    }
     
     // Métodos
     public void arrancar() {

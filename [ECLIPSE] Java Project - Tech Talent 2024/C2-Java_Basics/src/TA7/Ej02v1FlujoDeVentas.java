@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Ej02FlujoDeVentas {
+public class Ej02v1FlujoDeVentas {
 
 	public static void main(String[] args) {
 		/*
