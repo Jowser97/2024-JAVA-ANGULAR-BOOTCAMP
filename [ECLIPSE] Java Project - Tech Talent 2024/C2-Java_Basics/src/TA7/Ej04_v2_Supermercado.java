@@ -222,3 +222,5 @@ public class Ej04_v2_Supermercado {
 		} while (respuesta.equalsIgnoreCase("y"));
 	}
 }
+
+for (int i = 0, <)
