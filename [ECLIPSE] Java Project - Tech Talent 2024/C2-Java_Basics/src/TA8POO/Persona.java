@@ -22,7 +22,7 @@ public class Persona {
 		this.nombre = "";
 		this.edad = 0;
 		this.dNI = "";
-		this.sexo = "";
+		this.sexo = "hombre";
 		this.peso = 0.0;
 		this.altura = 0.00;
 	}

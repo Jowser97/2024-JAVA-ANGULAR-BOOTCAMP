@@ -5,7 +5,9 @@ public class MainApp {
 	public static void main(String[] args) {
 		
 		//Generar contraseña
-		Electrodomestico a = new Electrodomestico();
+		Password a = new Password();
+		System.out.println(a.getContrasenha());
+		
 		
 		
 	}

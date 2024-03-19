@@ -16,7 +16,7 @@ public class Electrodomestico {
 	private int peso;
 
 	public Electrodomestico(double precioBase, String color, String consumoEnergetico, int peso) {
-		// constructor todos los parametros
+		// constructor todos los atributos
 		this.precioBase = precioBase;
 		if (color.equalsIgnoreCase("blanco") || color.equalsIgnoreCase("negro") || color.equalsIgnoreCase("rojo")
 				|| color.equalsIgnoreCase("azul") || color.equalsIgnoreCase("gris")) {
@@ -46,10 +46,10 @@ public class Electrodomestico {
 
 	public Electrodomestico(double precioBase, int peso) {
 		// constructor precio y peso
-		this.precioBase = 100.00;
+		this.precioBase = precioBase;
 		this.color = "blanco";
 		this.consumoEnergetico = "F";
-		this.peso = 5;
+		this.peso = peso;
 	}
 
 }

@@ -15,7 +15,7 @@ public class Password {
 	private String contrasenha;
 
 	public Password() {
-		// Por defecto
+		// Constructor por defecto
 		this.longitud = 8;
 		this.contrasenha = generarContrasenha(longitud);
 	}
