@@ -1,5 +1,7 @@
 package TA8GRUPO;
 
+import java.text.DecimalFormat;
+
 public class Producto {
 
 	private double precio;
@@ -15,7 +17,7 @@ public class Producto {
 	}
 
 	public Producto() {
-		this.precio = 1;
+		this.precio = 1.00;
 		this.iva = 0.21;
 		this.cantidad = 10;
 		this.nombre = "";
