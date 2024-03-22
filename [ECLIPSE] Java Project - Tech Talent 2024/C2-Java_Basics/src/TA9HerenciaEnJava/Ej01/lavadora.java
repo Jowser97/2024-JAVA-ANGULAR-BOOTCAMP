@@ -1,4 +1,4 @@
-package TA9HerenciaEnJava;
+package TA9HerenciaEnJava.Ej01;
 
 public class lavadora extends electrodomestico {
 
@@ -20,7 +20,7 @@ public class lavadora extends electrodomestico {
 	}
 	
 	//Constructor todos los parametros heredando superclass
-	public lavadora(double precioBase, String color, char consEnerg, int peso, double carga) {
+	public lavadora(double precioBase, String color, char consEnerg, double peso, double carga) {
 		super(precioBase, color, consEnerg, peso);
 		this.carga = carga;
 	}
@@ -35,13 +35,15 @@ public class lavadora extends electrodomestico {
 	
 	//Metodo añadido al de la superclass
 	@Override
-	public void precioFinal() {
+	public double precioFinal() {
 
-		if (this.carga > 30) {
+		if (carga > 30) {
 			this.precioBase += 50;
 		}
 		
 		super.precioFinal();
+		
+		return this.precioBase;
 	}
 }
 	

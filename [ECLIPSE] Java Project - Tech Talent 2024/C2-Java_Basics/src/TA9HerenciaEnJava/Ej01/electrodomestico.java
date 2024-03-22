@@ -1,4 +1,4 @@
-package TA9HerenciaEnJava;
+package TA9HerenciaEnJava.Ej01;
 
 /* Atributos: precio base, color, consumo energetico (A-F) y peso. se podran heredar.
  * Por defecto: color, blanco; consumo energetico, F; precio base, 100€; y peso, 5. (constantes)
@@ -35,10 +35,10 @@ public class electrodomestico {
 	}
 
 	// Constructor todos los atributos
-	public electrodomestico(double precioBase, String color, char consEnerg, int peso) {
+	public electrodomestico(double precioBase, String color, char consEnerg, double peso) {
 		this.precioBase = precioBase;
-		this.color = color;
-		this.consEnerg = consEnerg;
+		this.color = comprobarColor(color);
+		this.consEnerg = comprobarConsumoEnergetico(consEnerg);
 		this.peso = peso;
 	}
 
@@ -95,7 +95,7 @@ public class electrodomestico {
 	}
 
 	// Metodo precio final
-	public void precioFinal() {
+	public double precioFinal() {
 		switch (this.consEnerg) {
 		case 'A':
 			this.precioBase += 100;
@@ -119,14 +119,16 @@ public class electrodomestico {
 			break;
 		}
 
-		if (this.peso >= 0 && this.peso <= 19) {
+		if (peso >= 0 && peso <= 19) {
 			this.precioBase += 10;
-		} else if (this.peso >= 20 && this.peso <= 49) {
+		} else if (peso >= 20 && peso <= 49) {
 			this.precioBase += 50;
-		} else if (this.peso >= 50 && this.peso <= 79) {
+		} else if (peso >= 50 && peso <= 79) {
 			this.precioBase += 80;
-		} else if (this.peso >= 80) {
+		} else if (peso >= 80) {
 			this.precioBase += 100;
 		}
+		
+		return this.precioBase;
 	}
 }
