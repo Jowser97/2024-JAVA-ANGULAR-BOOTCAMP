@@ -7,4 +7,7 @@ public interface entregable {
 	void devolver();
 
 	boolean isEntregado();
+	
+	public Object compareTo(Object a);
+	
 }

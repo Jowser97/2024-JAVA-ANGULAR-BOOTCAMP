@@ -6,7 +6,7 @@ package TA9Herencia.Ej02;
  * Metodos: getters y setters exc entregado, toString
  */
 
-public class videojuego {
+public class videojuego implements entregable {
 	
 	final int horasEstimadasDefault = 10;
 	final boolean entregadoDefault = false;
@@ -81,6 +81,35 @@ public class videojuego {
 		return "videojuego [titulo=" + titulo + ", horasEstimadas=" + horasEstimadas + ", entregado=" + entregado
 				+ ", genero=" + genero + ", company=" + company + "]";
 	}
+
+	@Override
+	public void entregar() {
+		this.entregado = true;
+		
+	}
+
+	@Override
+	public void devolver() {
+		this.entregado = false;
+		
+	}
+
+	@Override
+	public boolean isEntregado() {
+		return this.entregado;
+	}
+	
+	
+	public Object compareTo(Object a) {
+		videojuego v = (videojuego) a;
+		int horas1 = this.horasEstimadas;
+		int horas2 = v.horasEstimadas;
+		
+		if (horas1 >= horas2) {
+			return this;
+		}
+		
+		return v;
 	
 	
 	

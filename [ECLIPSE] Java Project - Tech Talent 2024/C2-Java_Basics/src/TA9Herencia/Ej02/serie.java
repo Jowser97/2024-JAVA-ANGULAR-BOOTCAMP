@@ -5,7 +5,7 @@ package TA9Herencia.Ej02;
  * Metodos: getters y setters de todos menos entregado y sobrescribir metodos tostring
  */
 
-public class serie {
+public class serie implements entregable{
 		
 	final boolean entregadoDefault = false;
 	final int numTempDefault = 3;
@@ -79,6 +79,29 @@ public class serie {
 	public String toString() {
 		return "serie [titulo=" + titulo + ", numTemp=" + numTemp + ", entregado=" + entregado + ", genero=" + genero
 				+ ", creador=" + creador + "]";
+	}
+
+	@Override
+	public void entregar() {
+		this.entregado = true;
+		
+	}
+
+	@Override
+	public void devolver() {
+		this.entregado = false;
+		
+	}
+
+	@Override
+	public boolean isEntregado() {
+		return this.entregado;
+	}
+
+	@Override
+	public Object compareTo(Object a) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
