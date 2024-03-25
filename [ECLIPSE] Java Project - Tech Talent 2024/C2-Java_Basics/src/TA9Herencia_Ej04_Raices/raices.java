@@ -53,24 +53,53 @@ public class raices {
 	}
 
 	public double getDiscriminante() {
-		return (Math.pow(b, 2)-4*a*c);
+		return (Math.pow(b, 2) - 4 * a * c);
 	}
-	
+
 	public boolean tieneRaices() {
 		return getDiscriminante() >= 0;
 	}
-	
+
 	public boolean tieneRaiz() {
 		return getDiscriminante() == 0;
 	}
-	
+
 	public void calcular() {
-		if (tieneRaiz()) {
-			double discriminante = getDiscriminante();
-			double raiz1 = (-b + Math.s)
+
+		if (tieneRaices()) {
+			System.out.println("Tiene dos raices, son:\n");
+			obtenerRaices();
+		} else if (tieneRaiz()) {
+			System.out.println("Tiene una raiz que es:\n");
+			obtenerRaiz();
+		} else {
+			System.out.println("No existen soluciones reales.");
 		}
 	}
-	
-	
+
+	public void obtenerRaices() {
+
+		double discriminante = getDiscriminante();
+		double raiz1 = (-(b + Math.sqrt(discriminante))) / (2 * a);
+		double raiz2 = (-(b - Math.sqrt(discriminante))) / (2 * a);
+		System.out.println("Raíz 1: " + raiz1);
+		System.out.println("Raíz 2: " + raiz2);
+
+	}
+
+	public void obtenerRaiz() {
+
+		double raiz = -b / (2 * a);
+		System.out.println("Raíz única: " + raiz);
+
+	}
+
+	@Override
+	public String toString() {
+
+		return "Para los valores A = " + a + ", B = " + b + ", C = " + c + 
+				"\nEl valor discriminante = " + getDiscriminante();
+
+	}
 
 }

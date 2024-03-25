@@ -96,39 +96,40 @@ public class electrodomestico {
 
 	// Metodo precio final
 	public double precioFinal() {
+		double precio = precioBase;
 		switch (this.consEnerg) {
 		case 'A':
-			this.precioBase += 100;
+			precio += 100;
 			break;
 		case 'B':
-			this.precioBase += 80;
+			precio += 80;
 			break;
 		case 'C':
-			this.precioBase += 60;
+			precio += 60;
 			break;
 		case 'D':
-			this.precioBase += 50;
+			precio += 50;
 			break;
 		case 'E':
-			this.precioBase += 30;
+			precio += 30;
 			break;
 		case 'F':
-			this.precioBase += 10;
+			precio += 10;
 			break;
 		default:
 			break;
 		}
 
 		if (peso >= 0 && peso <= 19) {
-			this.precioBase += 10;
+			precio += 10;
 		} else if (peso >= 20 && peso <= 49) {
-			this.precioBase += 50;
+			precio += 50;
 		} else if (peso >= 50 && peso <= 79) {
-			this.precioBase += 80;
+			precio += 80;
 		} else if (peso >= 80) {
-			this.precioBase += 100;
+			precio += 100;
 		}
 		
-		return this.precioBase;
+		return precio;
 	}
 }

@@ -27,14 +27,10 @@ public class Electrodomestico {
 		this.consumoEnergetico = consumoEnergetico;
 		this.peso = peso;
 	}
-	
-	
 
 	public Electrodomestico(String color) {
 		this.color = color;
 	}
-
-
 
 	public Electrodomestico() {
 		// constructor por defecto

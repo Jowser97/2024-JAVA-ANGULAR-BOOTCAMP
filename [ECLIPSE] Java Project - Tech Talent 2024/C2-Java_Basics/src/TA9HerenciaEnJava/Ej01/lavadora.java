@@ -36,14 +36,12 @@ public class lavadora extends electrodomestico {
 	//Metodo añadido al de la superclass
 	@Override
 	public double precioFinal() {
-
+		double precio = super.precioFinal();
+		
 		if (carga > 30) {
-			this.precioBase += 50;
+			precio += 50;
 		}
-		
-		super.precioFinal();
-		
-		return this.precioBase;
+		return precio;
 	}
 }
 	

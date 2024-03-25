@@ -18,7 +18,7 @@ public class LibroMainApp {
 		libro2.setAutor("Douglas Stuart");
 		libro2.setIsbn("978-843974143");
 		libro2.setNumPaginas(440);
-		libro2.setTitulo("Un lugar para mundo");
+		libro2.setTitulo("Un lugar para mungo");
 
 		System.out.println(libro1.toString());
 		System.out.println(libro2.toString());
