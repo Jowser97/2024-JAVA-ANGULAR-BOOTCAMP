@@ -38,7 +38,6 @@ public class serie implements entregable{
 	public serie(String titulo, int numTemp, String genero, String creador) {
 		this.titulo = titulo;
 		this.numTemp = numTemp;
-		this.entregado = entregadoDefault;
 		this.genero = genero;
 		this.creador = creador;
 	}
@@ -98,12 +97,7 @@ public class serie implements entregable{
 		return this.entregado;
 	}
 
-	@Override
-	public Object compareTo(Object a) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+
 	
 
 }

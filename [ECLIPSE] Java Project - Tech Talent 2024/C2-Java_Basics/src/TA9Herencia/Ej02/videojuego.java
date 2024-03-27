@@ -41,7 +41,6 @@ public class videojuego implements entregable {
 		this.horasEstimadas = horasEstimadas;
 		this.genero = genero;
 		this.company = company;
-		this.entregado = entregadoDefault;
 	}
 
 	public String getTitulo() {
@@ -98,18 +97,6 @@ public class videojuego implements entregable {
 	public boolean isEntregado() {
 		return this.entregado;
 	}
-	
-	
-	public Object compareTo(Object a) {
-		videojuego v = (videojuego) a;
-		int horas1 = this.horasEstimadas;
-		int horas2 = v.horasEstimadas;
-		
-		if (horas1 >= horas2) {
-			return this;
-		}
-		
-		return v;
 	
 	
 	

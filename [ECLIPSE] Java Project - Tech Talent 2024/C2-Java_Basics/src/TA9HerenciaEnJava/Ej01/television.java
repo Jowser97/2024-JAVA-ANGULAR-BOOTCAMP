@@ -1,6 +1,8 @@
 package TA9HerenciaEnJava.Ej01;
 
 public class television extends electrodomestico {
+	
+	//falta añadir el precio si tiene sintonizador tdt
 
 	private final double resolucionDefault = 20.0;
 	private final boolean sintonizadorTdtDefault = false;
@@ -28,7 +30,8 @@ public class television extends electrodomestico {
 	// Constructor con resolucion, sintonizador tdt y los heredados de superclass
 	public television(double precioBase, String color, char consEnerg, double peso, double resolucion,
 			boolean sintonizadortdt) {
-		super(precioBase, color, consEnerg, peso);
+		//arreglar lo del color
+		super(precioBase, comprobarColor(color), consEnerg, peso);
 		this.sintonizadorTdt = sintonizadortdt;
 		this.resolucion = resolucion;
 		// TODO Auto-generated constructor stub
@@ -53,16 +56,15 @@ public class television extends electrodomestico {
 	@Override
 	public double precioFinal() {
 		double precio = super.precioFinal();
-
-		if (this.sintonizadorTdt = true) {
-			precio += 50;
-		}
-
-		if (this.resolucion > 40) {
+		
+		if (resolucion > 40) {
 			precio *= 1.30;
 		}
 
-		return precio;
+		if (sintonizadorTdt = true) {
+			precio += 50;
+		}
 
+		return precio;
 	}
 }

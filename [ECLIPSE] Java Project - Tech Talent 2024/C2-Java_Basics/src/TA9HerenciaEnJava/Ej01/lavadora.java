@@ -21,7 +21,7 @@ public class lavadora extends electrodomestico {
 	
 	//Constructor todos los parametros heredando superclass
 	public lavadora(double precioBase, String color, char consEnerg, double peso, double carga) {
-		super(precioBase, color, consEnerg, peso);
+		super(precioBase, comprobarColor(color), consEnerg, peso);
 		this.carga = carga;
 	}
 

@@ -8,10 +8,10 @@ package TA9HerenciaEnJava.Ej01;
 
 public class electrodomestico {
 
-	protected final double precioDefault = 100;
-	protected final String colorDefault = "blanco";
-	protected final char consEnergiaDefault = 'F';
-	protected final double pesoDefault = 5;
+	protected final static double precioDefault = 100; //static, globaliza una variable
+	protected final static String colorDefault = "blanco"; //se puede usar un arraylist (repoprofe)
+	protected final static char consEnergiaDefault = 'F';
+	protected final static double pesoDefault = 5;
 
 	protected double precioBase = precioDefault;
 	protected String color = colorDefault;
@@ -75,29 +75,30 @@ public class electrodomestico {
 		this.peso = peso;
 	}
 
-	// Metodo comprobar consumo energetico
-	public char comprobarConsumoEnergetico(char letra) {
+	//Metodo comprobar consumo energetico, se puede poner privado por que se instancia al 
+	//constructor y este llama al metodo.
+	private char comprobarConsumoEnergetico(char letra) {
 	    if (letra >= 'A' && letra <= 'F') {
             return letra;
         } else {
-            return this.consEnergiaDefault;
+            return electrodomestico.consEnergiaDefault;
         }
     }
 
-	// Metodo comprobar color
-	public String comprobarColor(String color) {
+	// Metodo comprobar color, se le añade static para poder usarlo en otra clase
+	protected static String comprobarColor(String color) {
 		if (color.equals("blanco") || color.equals("negro") || color.equals("rojo")
 				|| color.equals("azul") || color.equals("gris")) {
 			return color;
 		} else {
-			return this.colorDefault;
+			return colorDefault;
 		}
 	}
 
 	// Metodo precio final
 	public double precioFinal() {
 		double precio = precioBase;
-		switch (this.consEnerg) {
+		switch (consEnerg) { //no se le pone this, por que es un valor ya asignado
 		case 'A':
 			precio += 100;
 			break;
