@@ -98,7 +98,13 @@ public class videojuego implements entregable {
 		return this.entregado;
 	}
 	
-	
+	@Override
+	public int compareTo(Object a) {
+
+		videojuego otherSerie = (videojuego) a;
+		return Integer.compare(this.horasEstimadas, otherSerie.getHorasEstimadas());
+
+	}
 	
 	
 

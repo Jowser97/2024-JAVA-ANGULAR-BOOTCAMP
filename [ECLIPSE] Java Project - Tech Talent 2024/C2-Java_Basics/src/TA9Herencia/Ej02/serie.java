@@ -5,18 +5,18 @@ package TA9Herencia.Ej02;
  * Metodos: getters y setters de todos menos entregado y sobrescribir metodos tostring
  */
 
-public class serie implements entregable{
-		
+public class serie implements entregable {
+
 	final boolean entregadoDefault = false;
 	final int numTempDefault = 3;
-	
+
 	protected String titulo;
 	protected int numTemp;
 	protected boolean entregado;
 	protected String genero;
 	protected String creador;
-	
-	//Constructor por defecto
+
+	// Constructor por defecto
 	public serie() {
 		this.titulo = "";
 		this.numTemp = numTempDefault;
@@ -24,8 +24,8 @@ public class serie implements entregable{
 		this.genero = "";
 		this.creador = "";
 	}
-	
-	//Constructor con titulo y creado, resto por defecto
+
+	// Constructor con titulo y creado, resto por defecto
 	public serie(String titulo, String creador) {
 		this.titulo = titulo;
 		this.creador = creador;
@@ -34,7 +34,7 @@ public class serie implements entregable{
 		this.entregado = entregadoDefault;
 	}
 
-	//Constructor con todos los atributos exc entregado.
+	// Constructor con todos los atributos exc entregado.
 	public serie(String titulo, int numTemp, String genero, String creador) {
 		this.titulo = titulo;
 		this.numTemp = numTemp;
@@ -83,21 +83,26 @@ public class serie implements entregable{
 	@Override
 	public void entregar() {
 		this.entregado = true;
-		
+
 	}
 
 	@Override
 	public void devolver() {
 		this.entregado = false;
-		
+
 	}
 
 	@Override
 	public boolean isEntregado() {
 		return this.entregado;
 	}
-
-
 	
+	@Override
+	public int compareTo(Object a) {
+
+		serie otherSerie = (serie) a;
+		return Integer.compare(this.numTemp, otherSerie.getNumTemp());
+
+	}
 
 }
