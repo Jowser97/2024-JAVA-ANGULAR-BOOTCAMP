@@ -23,23 +23,31 @@ public class ElectrodomesticoMainApp {
 		double precioTotalTelevisiones = 0;
 		double precioTotalLavadoras = 0;
 		double precioTotalElectrodomesticos = 0;
+		int nTelevisiones = 0;
+		int nLavadoras = 0;
+		int nElectrodomesticos = 0;
 
 		for (electrodomestico electrodomestico : electrodomesticos) {
 			double precioFinal = electrodomestico.precioFinal();
+			nElectrodomesticos++;
 			precioTotalElectrodomesticos += precioFinal;
 
 			if (electrodomestico instanceof television) {
 				precioTotalTelevisiones += precioFinal;
+				nTelevisiones++;
 			} else if (electrodomestico instanceof lavadora) {
 				precioTotalLavadoras += precioFinal;
+				nLavadoras++;
 			}
 		}
-		
+
 		DecimalFormat formatoDecimal = new DecimalFormat("#.##");
+		System.out.println("Hay " + nElectrodomesticos + " electrodomesticos de los cuales: " + nTelevisiones
+				+ " son televisores y " + nLavadoras + " son lavadoras.");
 		System.out.println("Precio total de las televisiones: " + precioTotalTelevisiones);
 		System.out.println("Precio total de las lavadoras: " + precioTotalLavadoras);
-		System.out.println("Precio total de todos los electrodomésticos: " 
-		+ formatoDecimal.format(precioTotalElectrodomesticos));
+		System.out.println(
+				"Precio total de todos los electrodomésticos: " + formatoDecimal.format(precioTotalElectrodomesticos));
 	}
 
 }

@@ -17,9 +17,9 @@ public class raices {
 	private double c;
 
 	public raices() {
-		this.a = 0;
-		this.b = 0;
-		this.c = 0;
+		this.a = 0.0;
+		this.b = 0.0;
+		this.c = 0.0;
 	}
 
 	public raices(double a, double b, double c) {
@@ -67,11 +67,13 @@ public class raices {
 	public void calcular() {
 
 		if (tieneRaices()) {
-			System.out.println("Tiene dos raices, son:\n");
 			obtenerRaices();
+			System.out.println("Tiene dos raices, son:");
+			
 		} else if (tieneRaiz()) {
-			System.out.println("Tiene una raiz que es:\n");
 			obtenerRaiz();
+			System.out.println("Tiene una raiz que es:\n");
+
 		} else {
 			System.out.println("No existen soluciones reales.");
 		}
@@ -97,8 +99,8 @@ public class raices {
 	@Override
 	public String toString() {
 
-		return "Para los valores A = " + a + ", B = " + b + ", C = " + c + 
-				"\nEl valor discriminante = " + getDiscriminante();
+		return "\nPara los valores A = " + a + ", B = " + b + ", C = " + c + "\nEl valor discriminante = "
+				+ getDiscriminante();
 
 	}
 
