@@ -57,7 +57,7 @@ public class raices {
 	}
 
 	public boolean tieneRaices() {
-		return getDiscriminante() >= 0;
+		return getDiscriminante() > 0;
 	}
 
 	public boolean tieneRaiz() {
@@ -67,13 +67,13 @@ public class raices {
 	public void calcular() {
 
 		if (tieneRaices()) {
-			obtenerRaices();
 			System.out.println("Tiene dos raices, son:");
+			obtenerRaices();
 			
 		} else if (tieneRaiz()) {
+			System.out.println("Tiene una raiz que es:");
 			obtenerRaiz();
-			System.out.println("Tiene una raiz que es:\n");
-
+			
 		} else {
 			System.out.println("No existen soluciones reales.");
 		}
