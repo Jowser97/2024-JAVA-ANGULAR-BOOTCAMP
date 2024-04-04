@@ -16,7 +16,7 @@ public class profesor extends persona {
 
 	@Override
 	public boolean estaAusente() {
-		int random = (int) (Math.random() * 2);
+		int random = (int) (Math.random() * 5);
 		return (random == 0);
 	}
 

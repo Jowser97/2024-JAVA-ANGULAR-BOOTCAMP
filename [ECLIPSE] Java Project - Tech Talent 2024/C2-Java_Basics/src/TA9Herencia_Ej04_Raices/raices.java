@@ -16,11 +16,12 @@ public class raices {
 	private double b;
 	private double c;
 
-	public raices() {
-		this.a = 0.0;
-		this.b = 0.0;
-		this.c = 0.0;
-	}
+	//No es necesario el constructor por defecto.
+//	public raices() {
+//		this.a = 0.0;
+//		this.b = 0.0;
+//		this.c = 0.0;
+//	}
 
 	public raices(double a, double b, double c) {
 		this.a = a;

@@ -31,7 +31,9 @@ public class estudiante extends persona {
 
 	@Override
 	public boolean estaAusente() {
-		int random = (int) (Math.random() * 5);
+		
+		
+		int random = (int) (Math.random() * 2);
 		return (random == 0);
 	}
 
