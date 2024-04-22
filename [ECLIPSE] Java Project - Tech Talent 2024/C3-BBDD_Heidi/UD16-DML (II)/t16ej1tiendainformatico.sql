@@ -85,3 +85,24 @@ SELECT nombre_articulo, precio FROM articulos
 WHERE precio = (SELECT MIN(precio) FROM articulos);
 
 --1.16.
+SELECT fabricantes.nombre_fabricante, MAX(articulos.precio) AS precio_max
+FROM fabricantes 
+LEFT JOIN articulos ON fabricantes.id_fabricante = articulos.id_fabricante
+GROUP BY fabricantes.nombre_fabricante;
+
+--1.17.
+INSERT INTO articulos (nombre_articulo, precio, id_fabricante) VALUES ('altavoces', 70, 2);
+
+--1.18.
+UPDATE articulos SET nombre_articulo = impresora laser WHERE articulos.id_articulo = 8;
+
+--1.19.
+SELECT nombre_articulo, precio*0.9 AS descuento FROM articulos;
+
+--1.20.
+SELECT nombre_articulo, precio,
+       CASE
+           WHEN precio >= 120 THEN precio - 10
+           ELSE precio
+       END AS precio_con_descuento
+FROM articulos;
