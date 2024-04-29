@@ -24,6 +24,10 @@ public class cheatsheet {
 			System.out.println(m[j]);
 		} 
 		
+		//Recorrer array con foreach
+		for (int k : n) {
+		}
+		
 		//Array de strings
 		String[] colores = {"rojo", "amarillo", "azul", "verde", "blanco"};
 		
@@ -31,9 +35,5 @@ public class cheatsheet {
 		for (int k = 0; k < colores.length; k++) {
 			System.out.println(colores[k]);
 		}
-		
-		
-		
 	}
-
 }
