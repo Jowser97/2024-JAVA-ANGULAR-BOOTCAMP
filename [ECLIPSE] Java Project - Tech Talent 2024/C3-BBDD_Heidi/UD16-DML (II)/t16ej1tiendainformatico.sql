@@ -83,6 +83,8 @@ HAVING AVG(articulos.precio) >= 150;
 --1.15.
 SELECT nombre_articulo, precio FROM articulos
 WHERE precio = (SELECT MIN(precio) FROM articulos);
+--Manel
+SELECT nombre_articulo, precio FROM articulos ORDER BY precio LIMIT 1;
 
 --1.16.
 SELECT fabricantes.nombre_fabricante, MAX(articulos.precio) AS precio_max
