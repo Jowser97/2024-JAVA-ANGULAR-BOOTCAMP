@@ -31,6 +31,7 @@ SELECT * FROM empleados WHERE apellidos LIKE 'P%';
 SELECT SUM(presupuesto) FROM departamentos;
 
 --2.9.
+--count cuenta registros, se hace referencia a todos los campos o a la clave primaria.
 SELECT departamento, COUNT(*) AS numero_empleados FROM empleados GROUP BY departamento;
 
 --2.10.
