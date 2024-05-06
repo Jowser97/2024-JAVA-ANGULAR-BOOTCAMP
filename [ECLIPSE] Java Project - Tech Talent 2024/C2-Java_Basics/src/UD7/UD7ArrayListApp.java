@@ -2,7 +2,7 @@ package UD7;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-//import java.util.*	Para coger todos
+//import java.util.*	Para importar todo
 
 public class UD7ArrayListApp {
 
