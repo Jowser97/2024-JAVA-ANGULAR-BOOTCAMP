@@ -2,7 +2,7 @@ package Arrays1D;
 
 import java.util.Random;
 
-public class ej4 {
+public class ej4arrayRandom {
 
 	/*
 	 * Define tres arrays de 20 números enteros cada una, con nombres numero,
