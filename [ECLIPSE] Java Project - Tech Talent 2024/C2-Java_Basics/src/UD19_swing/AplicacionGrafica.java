@@ -21,7 +21,7 @@ public class AplicacionGrafica extends JFrame {
 		etiqueta.setBounds(43,20,100,20);
 		contentPane.add(etiqueta);
 		//Componente Campo de texto
-		JTextField campo = new JTextField("fasdfasfs");
+		JTextField campo = new JTextField();
 		campo.setBounds(43,67,86,26);
 		contentPane.add(campo);
 		//Componente Botón
