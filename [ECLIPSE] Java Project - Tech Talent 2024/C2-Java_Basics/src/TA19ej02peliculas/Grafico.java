@@ -44,7 +44,6 @@ public class Grafico extends JFrame {
 				// Se obtiene el texto mediante getText
 				String nombre = textoInsert1.getText();
 				comboBox1.addItem(nombre);// Mostrar un mensaje en un JOptionPane
-				double op1 = Double.parseDouble(textOP1.getText());
 			}
 		});
 
