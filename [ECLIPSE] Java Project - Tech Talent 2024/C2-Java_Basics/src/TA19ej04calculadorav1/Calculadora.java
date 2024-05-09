@@ -2,7 +2,6 @@ package TA19ej04calculadorav1;
 
 import javax.swing.*;
 
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.*;
 
@@ -85,7 +84,8 @@ public class Calculadora extends JFrame {
 
 		about.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(Calculadora.this, "Esta es una calculadora simple.", "Acerca de",
+				JOptionPane.showMessageDialog(Calculadora.this, 
+						"Calculadora de Abde, Alex y Jose", "About",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
