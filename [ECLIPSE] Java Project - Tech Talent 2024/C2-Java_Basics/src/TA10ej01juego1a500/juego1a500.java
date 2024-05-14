@@ -16,9 +16,6 @@ public class juego1a500 {
 
 	}
 	
-	
-	
-	
 	public void jugar() {
 		System.out.println("Intenta adivinar el numero secreto.");
 		

@@ -6,10 +6,6 @@ public class juegoApp {
 		
 		juego1a500 juego = new juego1a500();
 		juego.jugar();
-		try {
-			int resultado = 10 / 0;
-		} catch (ArithmeticException e) {
-			System.out.println("No puede dar infinito");
-		}
+		
 	}
 }
