@@ -2,18 +2,27 @@ package TA10ej03parOimpar;
 
 import java.util.*;
 
-public class numRandom extends Exception {
+class customExcPar extends Exception {
+
+	public customExcPar(String mensaje) {
+		super(mensaje);
+	}
+}
+
+class customExcImpar extends Exception {
+
+	public customExcImpar(String mensaje) {
+		super(mensaje);
+	}
+}
+
+public class numRandom {
 
 	private int numero;
 
 	public numRandom() {
 		Random random = new Random();
 		this.numero = random.nextInt(1000);
-	}
-	
-	public numRandom(int n) {
-		super();
-		this.numero = n;
 	}
 
 	public int getNumero() {
@@ -24,31 +33,22 @@ public class numRandom extends Exception {
 		this.numero = numero;
 	}
 
-	public String getMensaje() {
-
-		try {
-		    if (this.numero % 2 == 0) {
-		        mensaje = "Es par."
-		    } else {
-		        mensaje = "Es impar."
-		    }
-		return mensaje;
-	}
-
 	public static void main(String[] args) {
 
 		numRandom numero = new numRandom();
 		System.out.println("Generando numero aleatorio...");
 
 		try {
-
-			System.out.println("El numero aleatorio generado es: " + numero.getNumero());
 			int n = numero.getNumero();
-			throw new numRandom(n);
 
-		}  catch (numRandom e) {
+			if (n % 2 == 0) {
+				throw new customExcPar("El numero " + n + " es par.");
+			} else {
+				throw new customExcImpar("El numero " + n + " es impar.");
+			}
+
+		} catch (customExcPar | customExcImpar e) {
 			System.out.println(e.getMessage());
 		}
-
 	}
 }
