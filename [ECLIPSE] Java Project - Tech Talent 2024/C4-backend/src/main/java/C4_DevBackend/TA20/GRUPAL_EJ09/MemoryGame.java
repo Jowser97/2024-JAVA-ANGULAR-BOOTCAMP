@@ -18,7 +18,7 @@ public class MemoryGame {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/db_images";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
-    private static final String SQL_QUERY = "SELECT name, image FROM parejas ORDER BY RAND() LIMIT ?";
+    private static String SQL_QUERY = "SELECT name, image FROM parejas ORDER BY RAND() LIMIT ?";
     private static ImageIcon backImage;
     private static ArrayList<ImageIcon> cardImages;
     private static JButton[] cardButtons;
@@ -124,9 +124,11 @@ public class MemoryGame {
             ResultSet rs = pstmt.executeQuery();
 
             cardImages = new ArrayList<>();
+            ArrayList<String> memeNames = new ArrayList<>(); // Lista para almacenar los nombres de los memes
             while (rs.next()) {
                 byte[] imageData = rs.getBytes("image");
                 String name = rs.getString("name");
+                memeNames.add(name); // Agregar el nombre del meme a la lista
                 ImageIcon icon = new ImageIcon(imageData);
                 icon.setDescription(name); // Establece la descripción como el nombre de la imagen
                 cardImages.add(icon);
@@ -146,6 +148,13 @@ public class MemoryGame {
             // Carga la imagen del dorso desde la base de datos
             loadBackImageFromDatabase();
 
+            // Verificar si se obtuvieron suficientes nombres de memes
+            if (memeNames.size() < NUM_CARDS / 2) {
+                throw new RuntimeException("No hay suficientes memes en la base de datos para crear pares de cartas.");
+            }
+
+            // Actualizar la consulta SQL para que seleccione las parejas de memes en lugar de imágenes aleatorias
+            SQL_QUERY = "SELECT name, image FROM memes WHERE name IN (?) ORDER BY RAND() LIMIT ?";
         } catch (Exception e) {
             e.printStackTrace();
         }
