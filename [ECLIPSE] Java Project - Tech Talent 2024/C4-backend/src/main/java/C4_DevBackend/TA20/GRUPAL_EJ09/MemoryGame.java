@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -26,14 +25,17 @@ public class MemoryGame {
     private static int firstCardIndex = -1;
     private static int secondCardIndex = -1;
     private static int moveCount = 0;
+    private static int pairsFound = 0; // Contador de pares encontrados
     private static JLabel moveCounterLabel;
+    private static JFrame frame;
 
     public static void main(String[] args) {
         loadCardImagesFromDatabase();
 
-        JFrame frame = new JFrame("Juego de Memoria");
+        frame = new JFrame("Juego de Memoria");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 800);
+        frame.setLocationRelativeTo(null);
 
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(ROWS, COLS));
@@ -58,7 +60,61 @@ public class MemoryGame {
 
         frame.add(topPanel, BorderLayout.NORTH);
         frame.add(panel, BorderLayout.CENTER);
+
+        // Crear la barra de menú
+        JMenuBar menuBar = new JMenuBar();
+
+        // Crear el menú "Juego"
+        JMenu gameMenu = new JMenu("Juego");
+
+        // Crear y añadir el ítem "Reiniciar"
+        JMenuItem restartItem = new JMenuItem("Reiniciar");
+        restartItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                restartGame();
+            }
+        });
+        gameMenu.add(restartItem);
+
+        // Crear y añadir el ítem "Finalizar"
+        JMenuItem exitItem = new JMenuItem("Finalizar");
+        exitItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        gameMenu.add(exitItem);
+
+        // Añadir el menú "Juego" a la barra de menú
+        menuBar.add(gameMenu);
+
+        // Crear el menú "Información"
+        JMenu infoMenu = new JMenu("Ayuda");
+
+        // Crear y añadir el ítem "Acerca de"
+        JMenuItem aboutItem = new JMenuItem("About");
+        aboutItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showAboutDialog();
+            }
+        });
+        infoMenu.add(aboutItem);
+
+        // Añadir el menú "Información" a la barra de menú
+        menuBar.add(infoMenu);
+
+        // Establecer la barra de menú en el frame
+        frame.setJMenuBar(menuBar);
+
         frame.setVisible(true);
+    }
+
+    private static void showAboutDialog() {
+        // Mostrar un JOptionPane con un mensaje
+        JOptionPane.showMessageDialog(frame, "Hecho por:\n Aurora, Alex y Jose\n:D");
     }
 
     private static void loadCardImagesFromDatabase() {
@@ -139,8 +195,10 @@ public class MemoryGame {
                 // Verificar si las cartas coinciden
                 if (cardImages.get(firstCardIndex).getDescription().equals(cardImages.get(secondCardIndex).getDescription())) {
                     // Cartas coinciden, se dejan descubiertas
+                    pairsFound++;
                     firstCardIndex = -1;
                     secondCardIndex = -1;
+                    checkGameWon();
                 } else {
                     // Cartas no coinciden, se voltean después de un breve retraso
                     Timer timer = new Timer(1000, new ActionListener() {
@@ -156,6 +214,30 @@ public class MemoryGame {
                     timer.start();
                 }
             }
+        }
+
+        private void checkGameWon() {
+            if (pairsFound == NUM_CARDS / 2) {
+                JOptionPane.showMessageDialog(null, "¡¡FELICIDADES, HAS GANADO!!");
+            }
+        }
+    }
+
+    private static void restartGame() {
+        // Reiniciar las variables del juego
+        firstCardIndex = -1;
+        secondCardIndex = -1;
+        moveCount = 0;
+        pairsFound = 0; // Reiniciar el contador de pares encontrados
+        moveCounterLabel.setText("Movimientos: 0");
+
+        // Barajar las cartas nuevamente
+        Collections.shuffle(cardImages);
+
+        // Volver a poner todas las cartas boca abajo
+        Dimension buttonSize = new Dimension(cardButtons[0].getWidth(), cardButtons[0].getHeight());
+        for (int i = 0; i < NUM_CARDS; i++) {
+            cardButtons[i].setIcon(scaleImageIcon(backImage, buttonSize));
         }
     }
 }
