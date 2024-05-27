@@ -18,7 +18,7 @@ public class MemoryGame {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/db_images";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "";
-    private static String SQL_QUERY = "SELECT name, image FROM parejas ORDER BY RAND() LIMIT ?";
+    private static final String SQL_QUERY = "SELECT name, image FROM parejas ORDER BY RAND() LIMIT ?";
     private static ImageIcon backImage;
     private static ArrayList<ImageIcon> cardImages;
     private static JButton[] cardButtons;
@@ -27,12 +27,11 @@ public class MemoryGame {
     private static int moveCount = 0;
     private static int pairsFound = 0; // Contador de pares encontrados
     private static JLabel moveCounterLabel;
-    private static JFrame frame;
 
     public static void main(String[] args) {
         loadCardImagesFromDatabase();
 
-        frame = new JFrame("Juego de Memoria");
+        JFrame frame = new JFrame("Juego de Memoria");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 800);
         frame.setLocationRelativeTo(null);
@@ -91,16 +90,10 @@ public class MemoryGame {
         menuBar.add(gameMenu);
 
         // Crear el menú "Información"
-        JMenu infoMenu = new JMenu("Ayuda");
+        JMenu infoMenu = new JMenu("Información");
 
         // Crear y añadir el ítem "Acerca de"
-        JMenuItem aboutItem = new JMenuItem("About");
-        aboutItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                showAboutDialog();
-            }
-        });
+        JMenuItem aboutItem = new JMenuItem("Memory Game Espacial, creado por Jose, Alex y Aurora, los mejores!");
         infoMenu.add(aboutItem);
 
         // Añadir el menú "Información" a la barra de menú
@@ -112,11 +105,6 @@ public class MemoryGame {
         frame.setVisible(true);
     }
 
-    private static void showAboutDialog() {
-        // Mostrar un JOptionPane con un mensaje
-        JOptionPane.showMessageDialog(frame, "Hecho por:\n Aurora, Alex y Jose\n:D");
-    }
-
     private static void loadCardImagesFromDatabase() {
         try (Connection conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(SQL_QUERY)) {
@@ -124,11 +112,9 @@ public class MemoryGame {
             ResultSet rs = pstmt.executeQuery();
 
             cardImages = new ArrayList<>();
-            ArrayList<String> memeNames = new ArrayList<>(); // Lista para almacenar los nombres de los memes
             while (rs.next()) {
                 byte[] imageData = rs.getBytes("image");
                 String name = rs.getString("name");
-                memeNames.add(name); // Agregar el nombre del meme a la lista
                 ImageIcon icon = new ImageIcon(imageData);
                 icon.setDescription(name); // Establece la descripción como el nombre de la imagen
                 cardImages.add(icon);
@@ -148,13 +134,6 @@ public class MemoryGame {
             // Carga la imagen del dorso desde la base de datos
             loadBackImageFromDatabase();
 
-            // Verificar si se obtuvieron suficientes nombres de memes
-            if (memeNames.size() < NUM_CARDS / 2) {
-                throw new RuntimeException("No hay suficientes memes en la base de datos para crear pares de cartas.");
-            }
-
-            // Actualizar la consulta SQL para que seleccione las parejas de memes en lugar de imágenes aleatorias
-            SQL_QUERY = "SELECT name, image FROM memes WHERE name IN (?) ORDER BY RAND() LIMIT ?";
         } catch (Exception e) {
             e.printStackTrace();
         }
