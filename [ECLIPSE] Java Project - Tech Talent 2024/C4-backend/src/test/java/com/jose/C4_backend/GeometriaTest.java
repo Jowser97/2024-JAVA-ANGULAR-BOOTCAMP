@@ -3,7 +3,7 @@ package com.jose.C4_backend;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import com.geometriaJUnit.repo.geometriaJUnit;
+import com.ta21geometriaJUnit.repo.geometriaJUnit;
 
 public class GeometriaTest {
 

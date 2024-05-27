@@ -1,4 +1,4 @@
-package com.geometriaJUnit.repo;
+package com.ta21geometriaJUnit.repo;
 
 public class geometriaJUnit {
 	
