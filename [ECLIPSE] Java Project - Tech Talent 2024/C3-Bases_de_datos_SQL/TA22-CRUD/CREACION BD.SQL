@@ -1,0 +1,20 @@
+CREATE TABLE clientes (
+    id int (11) NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR (250) DEFAULT NULL,
+    apellido1 VARCHAR (250) DEFAULT NULL,
+    apellido2 VARCHAR (250) DEFAULT NULL,
+    direccion VARCHAR (250) DEFAULT NULL,
+    dni VARCHAR (9) DEFAULT NULL,
+    fecha DATE DEFAULT NULL,
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE videos (
+    id INT (11) NOT NULL AUTO_INCREMENT,
+    title VARCHAR (250) DEFAULT NULL,
+    director VARCHAR (250) DEFAULT NULL,
+    cli_id INT (11) DEFAULT NULL,
+    PRIMARY KEY (id),
+    CONSTRAINT videos_fk FOREIGN KEY (cli_id) REFERENCES clientes (id)
+);
