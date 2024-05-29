@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class vistaClientes extends JFrame {
+public class ClienteForm extends JFrame {
     private JTextField nombreField;
     private JTextField apellido1Field;
     private JTextField apellido2Field;
@@ -14,7 +14,7 @@ public class vistaClientes extends JFrame {
     private JButton addButton;
     private JButton viewButton;
 
-    public vistaClientes() {
+    public ClienteForm() {
         setTitle("Gestión de Clientes");
         setBounds(100, 100, 450, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

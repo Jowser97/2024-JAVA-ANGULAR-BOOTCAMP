@@ -2,7 +2,7 @@ package C4_ta22.crud;
 
 import java.sql.*;
 
-public class modeloClientes {
+public class Cliente {
 
 	private int id;
 	private String nombre;
