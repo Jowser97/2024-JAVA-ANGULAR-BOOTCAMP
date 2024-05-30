@@ -1,4 +1,4 @@
-package UD22_MVC.vista;
+package UD22_MVC.Vista;
 
 import javax.swing.*;
 
@@ -19,13 +19,13 @@ public class ClienteUpdateView extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new GridLayout(0, 2));
 
-        JTextField idField = new JTextField();
-        JTextField nombreField = new JTextField();
-        JTextField apellido1Field = new JTextField();
-        JTextField apellido2Field = new JTextField();
-        JTextField direccionField = new JTextField();
-        JTextField dniField = new JTextField();
-        JTextField fechaField = new JTextField();
+        final JTextField idField = new JTextField();
+        final JTextField nombreField = new JTextField();
+        final JTextField apellido1Field = new JTextField();
+        final JTextField apellido2Field = new JTextField();
+        final JTextField direccionField = new JTextField();
+        final JTextField dniField = new JTextField();
+        final JTextField fechaField = new JTextField();
 
         add(new JLabel("ID:"));
         add(idField);

@@ -1,4 +1,4 @@
-package UD22_MVC.vista;
+package UD22_MVC.Vista;
 
 import javax.swing.*;
 
@@ -20,9 +20,9 @@ public class VideoReadView extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        JTextArea textArea = new JTextArea();
+        final JTextArea textArea = new JTextArea();
         textArea.setEditable(false);
-        JScrollPane scrollPane = new JScrollPane(textArea);
+        final JScrollPane scrollPane = new JScrollPane(textArea);
         add(scrollPane, BorderLayout.CENTER);
 
         JButton refreshButton = new JButton("Actualizar Lista");

@@ -2,14 +2,14 @@ package UD22_MVC.mainApp;
 
 import javax.swing.*;
 
-import UD22_MVC.vista.ClienteCreateView;
-import UD22_MVC.vista.ClienteDeleteView;
-import UD22_MVC.vista.ClienteReadView;
-import UD22_MVC.vista.ClienteUpdateView;
-import UD22_MVC.vista.VideoCreateView;
-import UD22_MVC.vista.VideoDeleteView;
-import UD22_MVC.vista.VideoReadView;
-import UD22_MVC.vista.VideoUpdateView;
+import UD22_MVC.Vista.ClienteCreateView;
+import UD22_MVC.Vista.ClienteDeleteView;
+import UD22_MVC.Vista.ClienteReadView;
+import UD22_MVC.Vista.ClienteUpdateView;
+import UD22_MVC.Vista.VideoCreateView;
+import UD22_MVC.Vista.VideoDeleteView;
+import UD22_MVC.Vista.VideoReadView;
+import UD22_MVC.Vista.VideoUpdateView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

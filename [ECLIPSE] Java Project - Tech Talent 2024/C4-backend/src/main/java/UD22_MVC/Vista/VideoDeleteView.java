@@ -1,4 +1,4 @@
-package UD22_MVC.vista;
+package UD22_MVC.Vista;
 
 import javax.swing.*;
 
@@ -15,10 +15,9 @@ public class VideoDeleteView extends JFrame {
         videoController = new VideoController();
         setTitle("Eliminar Video");
         setSize(400, 150);
-        setLocationRelativeTo(null);
         setLayout(new GridLayout(0, 2));
 
-        JTextField idField = new JTextField();
+        final JTextField idField = new JTextField();
         add(new JLabel("ID:"));
         add(idField);
 

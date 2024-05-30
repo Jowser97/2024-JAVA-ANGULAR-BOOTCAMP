@@ -1,4 +1,4 @@
-package UD22_MVC.vista;
+package UD22_MVC.Vista;
 
 import javax.swing.*;
 
@@ -18,10 +18,10 @@ public class VideoUpdateView extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new GridLayout(0, 2));
 
-        JTextField idField = new JTextField();
-        JTextField titleField = new JTextField();
-        JTextField directorField = new JTextField();
-        JTextField cliIdField = new JTextField();
+        final JTextField idField = new JTextField();
+        final JTextField titleField = new JTextField();
+        final JTextField directorField = new JTextField();
+        final JTextField cliIdField = new JTextField();
 
         add(new JLabel("ID:"));
         add(idField);

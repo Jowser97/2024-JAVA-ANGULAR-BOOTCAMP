@@ -1,4 +1,4 @@
-package UD22_MVC.vista;
+package UD22_MVC.Vista;
 
 import javax.swing.*;
 
@@ -20,8 +20,9 @@ public class ClienteReadView extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        JTextArea textArea = new JTextArea();
+        final JTextArea textArea = new JTextArea();
         textArea.setEditable(false);
+        textArea.setFont(new Font("Arial", Font.PLAIN, 16));
         JScrollPane scrollPane = new JScrollPane(textArea);
         add(scrollPane, BorderLayout.CENTER);
 
