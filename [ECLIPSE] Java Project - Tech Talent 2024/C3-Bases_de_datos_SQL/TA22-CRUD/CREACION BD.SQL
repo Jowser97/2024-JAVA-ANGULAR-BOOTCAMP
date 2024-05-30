@@ -1,3 +1,6 @@
+CREATE DATABASE MVC_Ejercicio1;
+USE MVC_Ejercicio1;
+
 CREATE TABLE clientes (
     id int (11) NOT NULL AUTO_INCREMENT,
     nombre VARCHAR (250) DEFAULT NULL,
@@ -8,7 +11,6 @@ CREATE TABLE clientes (
     fecha DATE DEFAULT NULL,
     PRIMARY KEY (id)
 );
-
 
 CREATE TABLE videos (
     id INT (11) NOT NULL AUTO_INCREMENT,
