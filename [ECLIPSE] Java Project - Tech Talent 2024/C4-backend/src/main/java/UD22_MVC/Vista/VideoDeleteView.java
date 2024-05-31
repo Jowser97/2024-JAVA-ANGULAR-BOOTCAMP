@@ -1,12 +1,13 @@
+
 package UD22_MVC.Vista;
 
 import javax.swing.*;
-
 import UD22_MVC.controlador.VideoController;
-
+import UD22_MVC.modelo.Video;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class VideoDeleteView extends JFrame {
     private VideoController videoController;
@@ -15,18 +16,32 @@ public class VideoDeleteView extends JFrame {
         videoController = new VideoController();
         setTitle("Eliminar Video");
         setSize(400, 150);
+        setLocationRelativeTo(null);
         setLayout(new GridLayout(0, 2));
 
-        final JTextField idField = new JTextField();
-        add(new JLabel("ID:"));
-        add(idField);
+        // Crear y poblar el JComboBox con los videos existentes
+        JComboBox<Video> videoComboBox = new JComboBox<>();
+        List<Video> videos = videoController.getAllVideos();
+        for (Video video : videos) {
+            videoComboBox.addItem(video);
+        }
+
+        // Añadir el JComboBox al panel
+        add(new JLabel("Seleccionar Video:"));
+        add(videoComboBox);
 
         JButton deleteButton = new JButton("Eliminar");
         deleteButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int id = Integer.parseInt(idField.getText());
-                videoController.deleteVideo(id);
+                Video selectedVideo = (Video) videoComboBox.getSelectedItem();
+                if (selectedVideo == null) {
+                    JOptionPane.showMessageDialog(null, "Por favor, seleccione un video para eliminar.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                videoController.deleteVideo(selectedVideo.getId());
                 JOptionPane.showMessageDialog(null, "Video eliminado exitosamente.");
+                videoComboBox.removeItem(selectedVideo);  // Elimina el video eliminado del combo box
             }
         });
         add(deleteButton);

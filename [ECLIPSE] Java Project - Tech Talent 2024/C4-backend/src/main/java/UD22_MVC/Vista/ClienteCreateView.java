@@ -15,16 +15,17 @@ public class ClienteCreateView extends JFrame {
         clienteController = new ClienteController();
         setTitle("Agregar Cliente");
         setSize(400, 300);
+        setLocationRelativeTo(null);
         
         // Asegúrate de usar un GridLayout desde el inicio
         setLayout(new GridLayout(8, 2));
 
-        final JTextField nombreField = new JTextField();
-        final JTextField apellido1Field = new JTextField();
-        final JTextField apellido2Field = new JTextField();
-        final JTextField direccionField = new JTextField();
-        final JTextField dniField = new JTextField();
-        final JTextField fechaField = new JTextField();
+        JTextField nombreField = new JTextField();
+        JTextField apellido1Field = new JTextField();
+        JTextField apellido2Field = new JTextField();
+        JTextField direccionField = new JTextField();
+        JTextField dniField = new JTextField();
+        JTextField fechaField = new JTextField();
 
         add(new JLabel("Nombre**:"));
         add(nombreField);
@@ -84,6 +85,3 @@ public class ClienteCreateView extends JFrame {
         new ClienteCreateView();
     }
 }
-
-
-

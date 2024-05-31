@@ -24,4 +24,5 @@ public class ClienteController {
     public void deleteCliente(int id) {
         Cliente.deleteCliente(id);
     }
+    
 }

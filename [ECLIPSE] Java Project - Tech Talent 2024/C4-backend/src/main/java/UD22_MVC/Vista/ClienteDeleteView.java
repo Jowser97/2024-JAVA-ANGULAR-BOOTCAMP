@@ -1,3 +1,4 @@
+
 package UD22_MVC.Vista;
 
 import javax.swing.*;
@@ -21,8 +22,8 @@ public class ClienteDeleteView extends JFrame {
         setLayout(new GridLayout(0, 2));
 
         // ComboBox para listar los clientes
-        final JComboBox<String> clienteComboBox = new JComboBox<>();
-        final List<Cliente> clientes = clienteController.getAllClientes();
+        JComboBox<String> clienteComboBox = new JComboBox<>();
+        List<Cliente> clientes = clienteController.getAllClientes();
         for (Cliente cliente : clientes) {
             clienteComboBox.addItem(cliente.getNombre() + " " + cliente.getApellido1() + " " + cliente.getApellido2());
         }

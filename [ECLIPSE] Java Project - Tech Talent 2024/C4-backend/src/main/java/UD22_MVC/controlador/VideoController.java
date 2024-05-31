@@ -1,7 +1,8 @@
 package UD22_MVC.controlador;
 
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
-
 import UD22_MVC.modelo.Video;
 
 public class VideoController {
@@ -23,5 +24,9 @@ public class VideoController {
 
     public void deleteVideo(int id) {
         Video.deleteVideo(id);
+    }
+    
+    public List<Integer> getAllVideoIds() {
+        return Video.getAllVideoIds();
     }
 }

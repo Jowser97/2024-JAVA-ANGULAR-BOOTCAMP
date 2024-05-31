@@ -20,9 +20,10 @@ public class VideoReadView extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        final JTextArea textArea = new JTextArea();
+        JTextArea textArea = new JTextArea();
         textArea.setEditable(false);
-        final JScrollPane scrollPane = new JScrollPane(textArea);
+        textArea.setFont(new Font("Arial", Font.PLAIN, 16)); // Cambiar la fuente y el tamaño del texto
+        JScrollPane scrollPane = new JScrollPane(textArea);
         add(scrollPane, BorderLayout.CENTER);
 
         JButton refreshButton = new JButton("Actualizar Lista");
@@ -31,7 +32,7 @@ public class VideoReadView extends JFrame {
                 List<Video> videos = VideoController.getAllVideos();
                 textArea.setText("");
                 for (Video video : videos) {
-                    textArea.append(video.getId() + ": " + video.getTitle() + " dirigido por " + video.getDirector() + "\n");
+                    textArea.append(video.getId() + ": " + video.getTitle() + " dirigido por " + video.getDirector() + " Cliente : " + video.getCli_id() + "\n");
                 }
             }
         });

@@ -20,15 +20,14 @@ public class VideoCreateView extends JFrame {
         setSize(400, 300);
         setLocationRelativeTo(null);
 
-
         // Asegúrate de establecer GridLayout
         setLayout(new GridLayout(5, 2)); // 5 filas y 2 columnas
 
-        final JTextField titleField = new JTextField();
-        final JTextField directorField = new JTextField();
+        JTextField titleField = new JTextField();
+        JTextField directorField = new JTextField();
 
-        final JComboBox<String> clienteComboBox = new JComboBox<>();
-        final List<Cliente> clientes = new ClienteController().getAllClientes();
+        JComboBox<String> clienteComboBox = new JComboBox<>();
+        List<Cliente> clientes = new ClienteController().getAllClientes();
         for (Cliente cliente : clientes) {
             clienteComboBox.addItem(cliente.getNombre() + " " + cliente.getApellido1() + " " + cliente.getApellido2());
         }
@@ -75,5 +74,3 @@ public class VideoCreateView extends JFrame {
         new VideoCreateView();
     }
 }
-
-
