@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pagina del grupo AJA</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f0f0f0;
+		}
+		.container {
+			width: 80%;
+			margin: 40px auto;
+			background-color: #fff;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		.title {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		.list-group {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.list-group-item {
+			padding: 10px;
+			border-bottom: 1px solid #ccc;
+		}
+		.list-group-item:last-child {
+			border-bottom: none;
+		}
+		.image-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 10px;
+		}
+		.image-grid img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 10px;
+		}
+		.form {
+			margin-top: 20px;
+		}
+		.form-control {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+		.form-control:focus {
+			border-color: #aaa;
+			box-shadow: 0 0 10px rgba(144, 127, 127, 0.1);
+		}
+		.form-btn {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.form-btn:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1 class="title">Proyecto Grupal</h1>
+		<p>Este es un proyecto grupal que nos permite desarrollar habilidades en HTML.</p>
+		<h2>Miembros del grupo</h2>
+		<ul class="list-group">
+			<li>Aurora</li>
+			<li>Jose</li>
+			<li>Ana Maria</li>
+		</ul>
+		<h2>Imágenes</h2>
+		<div class="image-grid">
+			<img src="imagen1.jpg" alt="Imagen 1">
+			<img src="imagen2.jpg" alt="Imagen 2">
+			<img src="imagen3.jpg" alt="Imagen 3">
+		</div>
+		<h2>Formulario de contacto</h2>
+		<form>
+			<label for="nombre">Nombre:</label>
+			<input type="text" id="nombre" name="nombre" class="form-control"><br><br>
+			<label for="correo">Correo electrónico:</label>
+			<input type="email" id="correo" name="correo" class="form-control"><br><br>
+			<label for="mensaje">Mensaje:</label>
+			<textarea id="mensaje" name="mensaje" class="form-control"></textarea><br><br>
+			<input type="submit" value="Enviar" class="form-btn">
+		</form>
+	</div>
+</body>
+</html>

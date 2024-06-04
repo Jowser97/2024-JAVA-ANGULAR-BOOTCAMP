@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Secciones y líneas generales de un documento HTML5.</title>
+    <style>
+        h1.color {
+          color: rgb(0, 67, 108);
+        }
+        h2.color {
+            color: rgb(3, 92, 147);
+        }
+      </style>
+  </head>
+  <body style="background-color: rgb(151, 197, 237);">
+    <h1 class="color">Texto para el ejercicio</h1>
+    <h2 class="color">Secciones y lineas generales de un documento HTML <sub>5</sub></h2>
+    <p>
+      La especificación HTML, trae muchos nuevos elementos a los desarrolladores
+      web, permitiéndoles describir la estructura de un documento web con
+      semántica estandarizada. Este documento describe estos elementos y cómo
+      usarlos para definir el perfil de cualquier documento.
+    </p>
+    <h2 class="color">Problemas resueltos por HTML <sub>5</sub></h2>
+    <p>
+      La definición de la estructura de un documento en HTML4 y su algoritmo de
+      perfilado es muy tosco y genera numerosos problemas
+    </p>
+    <ol style="list-style-type:decimal">
+        <li>HTML, quita la necesidad de elementos &lt;div&gt; para definir secciones semánticas sin definir valores específicos para los atributos class, introduciendo un nuevo elemento, &lt;section&gt;, el elemento de sección HTML</li>
+        <li>Mezclar varios documentos es difícil la inclusión de un sub-documento en un documento principal. Esto se resuelve en HTML, con los elementos de seccionado (&lt;article&gt;, &lt;section&gt;. &lt;nav&gt; y &lt;aside&gt;) son siempre subsecciones de su sección ancestra más cercana</li>
+        <li>HTML introduce el elemento &lt;hgroup&gt; que oculta todos los elementos de cabecera excepto el primero de más alto rango (por ejemplo. &lt;hgroup&gt;&lt;h1&gt;Justine&lt;/h1&gt;&lt;h2&gt;Les Malheurs de la Vertu&lt;/h2&gt;&lt;/hgroup&gt; crea el perfil 1. Justine).</li>
+      </ol>
+  </body>
+</html>
