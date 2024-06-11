@@ -56,9 +56,12 @@ body {
   
   .marcointerno {
     border: 1px solid gray;
-    padding: 30px;
-    margin: 30px 0;
+    padding: 10px; 
+    margin: 30px;
     width: 75%;
+   
+      background: linear-gradient(to bottom, rgb(233, 230, 230), white, rgb(233, 230, 230));
+    
   }
   
   .content {
@@ -70,24 +73,37 @@ body {
   .menu {
     width: 20%;
   }
-  
+
+  .menu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .menu li {
+    margin: 5px 0;
+  }
+
   .button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px 0;
-    font-size: 16px;
-    color: white;
-    background-color: rgb(38, 184, 125);
-    border: rgb(0, 0, 0);
-    border-radius: 0px;
+    display: block;
+    padding: 10px;
     text-align: center;
-    width: 100px; /* Se ajusta automáticamente al contenido */
-    height: auto; /* Se ajusta automáticamente al contenido */
-    line-height: normal; /* Restauramos el valor predeterminado */
-    box-sizing: border-box;
-    
-}
+    text-decoration: none;
+    color: rgb(3, 102, 67);
+    border-radius: 0px;
+    padding: 6%;
+  }
   
-  .button:hover {
-    background-color: rgb(12, 97, 63);
+  .button.inicio {
+    background: linear-gradient(#f69d3c, #ffffff);
+  }
+  
+  .button.verde {
+    background: linear-gradient(#45df22, #ffffff);
+  }
+  
+  .button.inicio:hover {
+    background: rgb(141, 111, 27)
+  }
+  
+  .button.verde:hover {
+    background: #3dc61e
   }
