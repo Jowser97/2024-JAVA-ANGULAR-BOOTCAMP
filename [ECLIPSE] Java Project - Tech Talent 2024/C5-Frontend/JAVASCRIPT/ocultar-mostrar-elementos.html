@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>¿Qué puede hacer JavaScript?</h1>
+
+    <p id="mostradOculto">JavaScript puede ocultar elementos HTML</p>
+    <p id="oculto" style="display: none">Texto oculto</p>
+
+    <button
+      type="button"
+      onclick="document.getElementById('oculto').style.display='block'"
+    >
+      Mostrar oculto
+    </button>
+
+    <button
+      type="button"
+      onclick="document.getElementById('mostradOculto').style.display='none'"
+    >
+      Oculta texto
+    </button>
+
+    <h1 id="textoMostrarOcultar">textogenerico</h1>
+    <p>
+      <button
+        type="button"
+        onclick="document.getElementById('textoMostrarOcultar').style.display='block'"
+      >
+        Reveal
+      </button>
+
+      <button
+        type="button"
+        onclick="document.getElementById('textoMostrarOcultar').style.display='none'"
+      >
+        Hide
+      </button>
+    </p>
+  </body>
+</html>
