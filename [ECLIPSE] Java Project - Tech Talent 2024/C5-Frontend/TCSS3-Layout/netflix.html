@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla Principal de Netflix</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #141414;
+            color: #fff;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #141414;
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        }
+        .navbar img.logo {
+            height: 35px;
+        }
+        .navbar ul {
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar li {
+            margin-left: 20px;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+        .navbar .menu {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .navbar .icons {
+            display: flex;
+            align-items: center;
+            padding-right: 40px;
+        }
+        .navbar .icons img {
+            height: 20px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        .hero {
+            position: relative;
+            height: 60vh;
+            background-image: url(imagenesNetflix/bannersao.png);
+            background-size:contain;
+            background-repeat:no-repeat;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .row {
+            padding: 20px;
+        }
+        .row h2 {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+        .row .thumbnails {
+            display: flex;
+            overflow-x: auto;
+        }
+        .row .thumbnails img {
+            width: calc(20% - 10px);
+            height: auto;
+            max-height: 150px;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        /* .row .thumbnails img:hover {
+            transform: scale(1.1);
+        } */
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
+        <div class="menu">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Series</a></li>
+                <li><a href="#">Películas</a></li>
+                <li><a href="#">Novedades populares</a></li>
+                <li><a href="#">Mi lista</a></li>
+            </ul>
+        </div>
+        <div class="icons">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="Buscar">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/gift.png" alt="Regalo">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/appointment-reminders.png" alt="Notificaciones">
+            <img src="imagenesNetflix/iconoperfil.png" alt="Perfil">
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>Película Destacada</h1>
+    </div>
+
+    <div class="row">
+        <h2>Populares en Netflix</h2>
+        <div class="thumbnails">
+            <img src="imagenesNetflix/1.png" alt="thumbnail 1">
+            <img src="imagenesNetflix/2.png" alt="thumbnail 2">
+            <img src="imagenesNetflix/3.png" alt="thumbnail 3">
+            <img src="imagenesNetflix/4.png" alt="thumbnail 4">
+            <img src="imagenesNetflix/5.png" alt="thumbnail 5">
+        </div>
+    </div>
+
+    <div class="row">
+        <h2>Series de TV</h2>
+        <div class="thumbnails">
+            <img src="imagenesNetflix/6.png" alt="thumbnail 1">
+            <img src="imagenesNetflix/7.png" alt="thumbnail 2">
+            <img src="imagenesNetflix/8.png" alt="thumbnail 3">
+            <img src="imagenesNetflix/9.png" alt="thumbnail 4">
+            <img src="imagenesNetflix/10.png" alt="thumbnail 5">
+        </div>
+    </div>
+
+    <div class="row">
+        <h2>Volver a ver</h2>
+        <div class="thumbnails">
+            <img src="imagenesNetflix/11.png" alt="thumbnail 1">
+            <img src="imagenesNetflix/12.png" alt="thumbnail 2">
+            <img src="imagenesNetflix/13.png" alt="thumbnail 3">
+            <img src="imagenesNetflix/14.png" alt="thumbnail 4">
+            <img src="imagenesNetflix/15.png" alt="thumbnail 5">
+        </div>
+    </div>
+</body>
+</html>
