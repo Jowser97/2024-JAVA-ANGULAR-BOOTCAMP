@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      div {
+        border: solid;
+        border-color: black;
+        padding: 10px;
+        display: inline-block;
+      }
+    </style>
+    <script src="scripts.js"></script>
+
+    <!-- Genera un evento que cuando pasemos el ratón por un botón nos escriba en un párrafo un texto cualquiera y cuando quite el ratón de encima (otro evento), me borre ese texto -->
+  </head>
+  <body>
+    <div onmouseover="generar()" onmouseout="esconder()">
+      <h1 id="beyonce">HI!</h1>
+    </div>
+  </body>
+</html>
