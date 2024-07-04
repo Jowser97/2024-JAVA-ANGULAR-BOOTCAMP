@@ -1,0 +1,9 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+main .content {
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: white;
+}
